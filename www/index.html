@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+    <script  src="js/ng-cordova.min.js"></script>
+    <!-- your app's js -->
+    <script src="js/controllers.js"></script>
+    <script src="js/module.js"></script>
+</head>
+
+<body ng-app="starter">
+<ion-nav-view></ion-nav-view>
+</body>
+<script type="text/javascript" charset="utf-8">
+
+
+
+    // Wait for device API libraries to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // device APIs are available
+    //
+    function onDeviceReady() {
+        // playAudio("http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3");
+    }
+
+    // Audio player
+    //
+    var my_media = null;
+    var mediaTimer = null;
+
+    // Play audio
+    //
+    function playAudio2(src) {
+        alert(src);
+        if (my_media == null) {
+            // Create Media object from src
+            my_media = new Media(src, onSuccess, onError);
+        } // else play current audio
+        // Play audio
+        my_media.play();
+
+        // Update my_media position every second
+        if (mediaTimer == null) {
+            mediaTimer = setInterval(function() {
+                // get my_media position
+                my_media.getCurrentPosition(
+                        // success callback
+                        function(position) {
+                            if (position > -1) {
+                                setAudioPosition((position) + " sec");
+                            }
+                        },
+                        // error callback
+                        function(e) {
+                            console.log("Error getting pos=" + e);
+                            setAudioPosition("Error: " + e);
+                        }
+                );
+            }, 1000);
+        }
+    }
+
+    // Pause audio
+    //
+    function pauseAudio() {
+        if (my_media) {
+            my_media.pause();
+        }
+    }
+
+    // Stop audio
+    //
+    function stopAudio() {
+        if (my_media) {
+            my_media.stop();
+        }
+        clearInterval(mediaTimer);
+        mediaTimer = null;
+    }
+
+    // onSuccess Callback
+    //
+    function onSuccess() {
+        console.log("playAudio():Audio Success");
+    }
+
+    // onError Callback
+    //
+    function onError(error) {
+        alert('code: '    + error.code    + '\n' +
+        'message: ' + error.message + '\n');
+    }
+
+    // Set audio position
+    //
+    function setAudioPosition(position) {
+        document.getElementById('audio_position').innerHTML = position;
+    }
+
+</script>
+</html>
