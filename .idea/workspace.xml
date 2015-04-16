@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2e0041f9-534b-4bdd-8d36-549a1e190e4b" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Developer\gitroot\zonaradio\www.rar" afterPath="" />
-    </list>
+    <list default="true" id="2e0041f9-534b-4bdd-8d36-549a1e190e4b" name="Default" comment="" />
     <ignored path="zonaradiord.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/platforms/" />
