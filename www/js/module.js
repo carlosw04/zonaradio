@@ -30,7 +30,8 @@ angular.module('starter',['ionic','starter.controllers'])
             url: "/redes",
             views: {
                 'menuContent': {
-                    templateUrl: "templates/Redes.html"
+                    templateUrl: "templates/Redes.html",
+                    controller:"SocialList"
                 }
             }
         })
@@ -42,6 +43,19 @@ angular.module('starter',['ionic','starter.controllers'])
                     templateUrl: "templates/Radio.html"
                 }
             }
+        })
+
+        .state('app.FaceBook', {
+            url: "/FaceBook",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/facebook.html",
+                    controller:"facebookctrl"
+
+                }
+            }
         });
+
+
         $urlRouterProvider.otherwise('/app/radio');
     });

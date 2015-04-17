@@ -91,18 +91,21 @@ angular.module('starter.controllers', ['ionic','ngCordova'])
         };
     })
 
-    .controller('PlaylistsCtrl', function($scope) {
-        $scope.playlists = [
-            { title: 'Reggae', id: 1 },
-            { title: 'Chill', id: 2 },
-            { title: 'Dubstep', id: 3 },
-            { title: 'Indie', id: 4 },
-            { title: 'Rap', id: 5 },
-            { title: 'Cowbell', id: 6 }
+    .controller('SocialList', function($scope) {
+        $scope.Redes = [
+            { id:1,title: 'FaceBook', icon: "/android_asset/www/img/facebook_32.png" },
+            { id:2,title: 'Twitter', icon: "/android_asset/www/img/twitter_32.png" },
+            { id:3,title: 'Instagram', icon: "/android_asset/www/img/instagram-icon.png" }
         ];
     })
 
-    .controller('PlaylistCtrl', function($scope, $stateParams) {
+    .controller('SocialCtrl', function($scope, $stateParams) {
+    })
+
+    .controller('facebookctrl', function($scope, $stateParams) {
+
+
+
     })
 
     .controller('Radio', function($scope) {

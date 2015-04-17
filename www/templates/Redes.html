@@ -1,5 +1,9 @@
 <ion-view view-title="Redes Sociales">
     <ion-content>
-        <h1>FaceBook</h1>
+        <ion-list>
+            <ion-item ng-repeat="Social in Redes" href="#/app/{{Social.title}}">
+                <img src="{{Social.icon}}" style="  height: 25px; width: 25px;"/>  {{Social.title}}
+            </ion-item>
+        </ion-list>
     </ion-content>
 </ion-view>
