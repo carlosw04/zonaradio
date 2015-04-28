@@ -34,7 +34,8 @@ $RECYCLE.BIN/
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*
@@ -50,3 +51,5 @@ Network Trash Folder
 Temporary Items
 .apdisk
 >>>>>>> ed246dc08e95e54ff0c4218a252c2b853b19cd59
+
+.idea/workspace.xml

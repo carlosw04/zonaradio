@@ -103,9 +103,35 @@ angular.module('starter.controllers', ['ionic','ngCordova'])
     })
 
     .controller('facebookctrl', function($scope, $stateParams) {
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "http://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.0";
+            alert(js.src);
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    })
 
+    .controller('instagramctrl', function($scope, $stateParams) {
+    })
 
-
+    .controller('StreamRadio',function($scope){
+    $scope.sonido = function(audioUrl,$scope){
+        alert("sonido " + audioUrl);
+    var options = {
+        bgColor: "#FFFFFF",
+        //bgImage: "<SWEET_BACKGROUND_IMAGE>",
+        //bgImageScale: "fit",
+        successCallback: function() {
+            console.log("Player closed without error.");
+        },
+        errorCallback: function(errMsg) {
+            console.log("Error! " + errMsg);
+        }
+    };
+    window.plugins.streamingMedia.playAudio(audioUrl, options);
+};
     })
 
     .controller('Radio', function($scope) {

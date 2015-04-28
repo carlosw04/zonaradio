@@ -54,6 +54,16 @@ angular.module('starter',['ionic','starter.controllers'])
 
                 }
             }
+        })
+        .state('app.Instagram', {
+            url: "/Instagram",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/instagram.html",
+                    controller:"instagramctrl"
+
+                }
+            }
         });
 
 

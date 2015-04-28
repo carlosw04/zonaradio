@@ -1,19 +1,16 @@
 
+    <ion-view view-title="Radio">
+        <ion-content style="background: url(/android_asset/www/img/bordes%20de%20zona-.png);
+    background-repeat: no-repeat;background-size: cover;">
 
-
-    <ion-view view-title="Radio" class="bar-positive">
-        <ion-content style="background: deepskyblue;">
-        <div class="row responsive-sm padding padding-top padding-right" style="width: 350px; height: 200px">
-            <img src="/android_asset/www/img/logoblack.jpg" height="200px" width="350px">
-        </div>
 
 
 
            </ion-content>
         <footer>
             <ion-footer-bar class="bar-assertive">
-                <a class="button button-icon icon ion-play" onclick="playAudio2('http://rs1.domint.net:8006/')"></a>
-                <!--<a class="button button-icon icon ion-android-bicycle"  onclick="playAudio2('http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3')"></a>-->
+                <a ng-controller="StreamRadio" class="button button-icon icon ion-play" onclick="playAudio2('http://rs1.domint.net:8006/')"></a>
+                <a class="button button-icon icon ion-android-bicycle"  onclick="playAudio2('http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3')"></a>
                 <a class="button button-icon icon ion-pause" onclick="pauseAudio()"></a>
                 <a class="button button-icon icon ion-stop" onclick="stopAudio()"></a>
                 {{$scope.my_media}}
@@ -25,95 +22,5 @@
     </ion-view>
 
 
-
-    <script type="text/javascript" charset="utf-8">
-  
-     
-
-        // Wait for device API libraries to load
-        //
-        document.addEventListener("deviceready", onDeviceReady, false);
-
-        // device APIs are available
-        //
-        function onDeviceReady() {
-           // playAudio("http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3");
-        }
-
-        // Audio player
-        //
-        var my_media = null;
-        var mediaTimer = null;
-
-        // Play audio
-        //
-        function playAudio(src) {
-            alert(src)
-            if (my_media == null) {
-                // Create Media object from src
-                my_media = new Media(src, onSuccess, onError);
-            } // else play current audio
-            // Play audio
-            my_media.play();
-
-            // Update my_media position every second
-            if (mediaTimer == null) {
-                mediaTimer = setInterval(function() {
-                    // get my_media position
-                    my_media.getCurrentPosition(
-                        // success callback
-                        function(position) {
-                            if (position > -1) {
-                                setAudioPosition((position) + " sec");
-                            }
-                        },
-                        // error callback
-                        function(e) {
-                            console.log("Error getting pos=" + e);
-                            setAudioPosition("Error: " + e);
-                        }
-                    );
-                }, 1000);
-            }
-        }
-
-        // Pause audio
-        //
-        function pauseAudio() {
-            if (my_media) {
-                my_media.pause();
-            }
-        }
-
-        // Stop audio
-        //
-        function stopAudio() {
-            if (my_media) {
-                my_media.stop();
-            }
-            clearInterval(mediaTimer);
-            mediaTimer = null;
-        }
-
-        // onSuccess Callback
-        //
-        function onSuccess() {
-            console.log("playAudio():Audio Success");
-        }
-
-        // onError Callback
-        //
-        function onError(error) {
-            alert('code: '    + error.code    + '\n' +
-                  'message: ' + error.message + '\n');
-        }
-
-        // Set audio position
-        //
-        function setAudioPosition(position) {
-            document.getElementById('audio_position').innerHTML = position;
-        }
-
-        </script>
     
 </html>
