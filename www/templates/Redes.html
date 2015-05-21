@@ -1,9 +1,16 @@
 <ion-view view-title="Redes Sociales">
     <ion-content>
-        <ion-list>
-            <ion-item ng-repeat="Social in Redes" href="#/app/{{Social.title}}">
-                <img src="{{Social.icon}}" style="  height: 25px; width: 25px;"/>  {{Social.title}}
-            </ion-item>
-        </ion-list>
+        <div class="list">
+            <a class="item" href="#" onclick="window.open('https://www.facebook.com/pages/ZONA-RADIO-RD/683529015114227?fref=photo', '_system', 'location=yes'); return false;">
+                <img src="/android_asset/www/img/facebook_32.png" style="  height: 25px; width: 25px;"/> FaceBook
+            </a>
+            <a class="item" href="#" onclick="window.open('https://twitter.com/zonaradiord', '_system', 'location=yes'); return false;">
+                <img src="/android_asset/www/img/twitter_32.png" style="  height: 25px; width: 25px;"/>  Twitter
+            </a>
+            <a class="item" href="#" onclick="window.open('http://instagram.com/zonaradiord', '_system', 'location=yes'); return false;">
+                <img src="/android_asset/www/img/instagram-icon.png" style="  height: 25px; width: 25px;"/>  Instagram
+            </a>
+
+        </div>
     </ion-content>
 </ion-view>

@@ -1,7 +1,7 @@
 /**
  * Created by Carlosw on 4/14/2015.
  */
-angular.module('starter',['ionic','starter.controllers'])
+angular.module('starter',['ionic','starter.controllers','starter.services'])
 
     .run(function($ionicPlatform) {
         $ionicPlatform.ready(function() {
@@ -40,7 +40,8 @@ angular.module('starter',['ionic','starter.controllers'])
             url: "/radio",
             views: {
                 'menuContent': {
-                    templateUrl: "templates/Radio.html"
+                    templateUrl: "templates/Radio.html",
+                    controller:"BrowseCtrl"
                 }
             }
         })

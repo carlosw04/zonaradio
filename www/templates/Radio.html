@@ -1,26 +1,34 @@
 
     <ion-view view-title="Radio">
-        <ion-content style="background: url(/android_asset/www/img/bordes%20de%20zona-.png);
-    background-repeat: no-repeat;background-size: cover;">
-
-
-
-
-           </ion-content>
-        <footer>
-            <ion-footer-bar class="bar-assertive">
-                <a ng-controller="StreamRadio" class="button button-icon icon ion-play" onclick="playAudio2('http://rs1.domint.net:8006/')"></a>
-                <a class="button button-icon icon ion-android-bicycle"  onclick="playAudio2('http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3')"></a>
-                <a class="button button-icon icon ion-pause" onclick="pauseAudio()"></a>
-                <a class="button button-icon icon ion-stop" onclick="stopAudio()"></a>
-                {{$scope.my_media}}
-                <div>
-                    <p id="audio_position"></p>
+        <ion-content class="padding">
+            <div class="list card">
+                <div class="item">
+                    <h2><i class="icon ion-ios-musical-notes"></i> {{name || '--'}}</h2>
+                    <p>{{path || '--'}}</p>
                 </div>
-            </ion-footer-bar>
-        </footer>
+                <div class="item item-body">
+                    <div ng-hide="loaded">
+                        <label>Loading...</label>
+                    </div>
+                    <div ng-show="loaded" style="height: 30px; width: {{position}}%; transition: width 0.2s; background: #e42012;">
+                    </div>
+                </div>
+                <div class="item tabs tabs-secondary tabs-icon-left">
+                    <a class="tab-item" href="javascript:" ng-click="showSubDirs()" ng-hide="isPlaying" >
+                        <i class="icon ion-ios-play"></i> Play
+                    </a>
+                    <a class="tab-item" href="javascript:" ng-click="pauseAudio()" ng-show="isPlaying">
+                        <i class="icon ion-pause"></i> Pause
+                    </a>
+                    <a class="tab-item" href="javascript:" ng-click="stopAudio()" ng-show="isPlaying">
+                        <i class="icon ion-stop"></i> Stop
+                    </a>
+                </div>
+            </div>
+        </ion-content>
+
     </ion-view>
 
 
-    
+
 </html>
